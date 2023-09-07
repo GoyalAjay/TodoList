@@ -5,7 +5,6 @@ import mongoose from "mongoose";
 import _ from "lodash";
 
 const app = express();
-const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -93,6 +92,11 @@ app.get("/list/:customListName", async (req, res) => {
     }
 });
 
+const port = process.env.PORT;
+if (port == null || port == "") {
+    port = 3000;
+}
+
 app.listen(port, () => {
-    console.log(`server is running on PORT ${port}!`);
+    console.log(`server is running successfully!`);
 });
