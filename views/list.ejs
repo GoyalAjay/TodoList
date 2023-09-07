@@ -1,0 +1,21 @@
+<%- include('header') -%>
+        <div class="box" id="heading">
+            <h1 name="listName"><%= listTitle %></h1>
+        </div>
+        <div class="box">
+            <% chores.forEach((chores) => { %>
+                <form action="/list/<%= listTitle %>/delete" method="post">
+                    <div class="item">
+                        <input name="checkbox" value="<%= chores._id %>" type="checkbox" onChange="this.form.submit();"></input>
+                        <p><%= chores.name %></p> 
+                    </div>
+                </form>
+            <% }) %>
+            <hr class="listHr">
+            <form class="item" action="/list/<%= listTitle %>/addChores" method="post">
+                <input class="mt-1" type="text" name="addChore" placeholder="New Chore" autocomplete="off"></input>
+                <button class="add-chores" type="submit" name="list" value="<%= listTitle %>">+</button>
+            </form>
+        </div>
+
+<%- include('footer') -%>

@@ -1,0 +1,127 @@
+<%- include('header') -%>
+    <div class="row justify-content-end m-auto mt-4">
+        <div class="col-4">
+            <h1 class="h1">TODO Lists</h1>
+        </div>
+        <div class="col-4 add-list-button me-5">
+            <button class="add-list mt-2" type="button" data-bs-toggle="modal" data-bs-target="#listModal">+</button>
+        </div>
+    </div>
+    <hr>
+    <% if (locals.lists) { %>
+        <div class="row">
+            <% if (lists.length === 1) { %>
+                <% lists.forEach((list) => { %>
+                    <div class="col-12 mb-5">
+                        <div class="m-auto" style="width: 23rem;">
+                            <div class="row justify-content-end mb-3">
+                                <div class="col-4">
+                                    <h5 class="lists-title text-center"><%= list.name %></h5>
+                                </div>
+                                <div class="col-4">
+                                    <form action="/deleteList" method="post">
+                                        <button class="btn btn-danger bi-trash float-end me-4" type="submit" name="list" value="<%= list._id %>" onChange="this.form.submit()"></button>
+                                    </form>
+                                </div>
+                            </div>
+                            <a class="listLink" href="http://localhost:3000/list/<%= list.name %>">
+                                <img src="images/todo-list.png" class="card-img-top" alt="todo-list">
+                            </a>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else if (lists.length === 2) { %>
+                <% lists.forEach((list) => { %>
+                    <div class="col-6 mb-5">
+                        <div class="m-auto" style="width: 23rem;">
+                            <div class="row justify-content-end">
+                                <div class="col-4">
+                                    <h5 class="lists-title text-center"><%= list.name %></h5>
+                                </div>
+                                <div class="col-4">
+                                    <form action="/deleteList" method="post">
+                                        <button class="btn btn-danger bi-trash float-end me-4" type="submit" name="list" value="<%= list._id %>"onChange="this.form.submit()"></button>
+                                    </form>
+                                </div>
+                            </div>
+                            <a class="listLink" href="http://localhost:3000/list/<%= list.name %>">
+                                <img src="images/todo-list.png" class="card-img-top" alt="todo-list">
+                            </a>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else if (lists.length === 3) { %>
+                <% lists.forEach((list) => { %>
+                    <div class="col-4 mb-5">
+                        <div class="m-auto" style="width: 23rem;">
+                            <div class="row justify-content-end">
+                                <div class="col-4">
+                                    <h5 class="lists-title text-center"><%= list.name %></h5>
+                                </div>
+                                <div class="col-4">
+                                    <form action="/deleteList" method="post">
+                                        <button class="btn btn-danger bi-trash float-end me-4" type="submit" name="list" value="<%= list._id %>" onChange="this.form.submit()"></button>
+                                    </form>
+                                </div>
+                            </div>
+                            <a class="listLink" href="http://localhost:3000/list/<%= list.name %>">
+                                <img src="images/todo-list.png" class="card-img-top" alt="todo-list">
+                            </a>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else if (lists.length >= 4) { %>
+                <% lists.forEach((list) => { %>
+                    <div class="col-3 mb-5">
+                        <div class="m-auto" style="width: 23rem;">
+                            <div class="row justify-content-end">
+                                <div class="col-4">
+                                    <h5 class="lists-title text-center"><%= list.name %></h5>
+                                </div>
+                                <div class="col-4">
+                                    <form action="/deleteList" method="post">
+                                        <button class="btn btn-danger bi-trash float-end me-4" type="submit" name="list" value="<%= list._id %>" onChange="this.form.submit()"></button>
+                                    </form>
+                                </div>
+                            </div>
+                            <a class="listLink" href="http://localhost:3000/list/<%= list.name %>">
+                                <img src="images/todo-list.png" class="card-img-top" alt="todo-list">
+                            </a>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } %>
+        </div>
+    <% } else {%>
+        <div class="row align-items-center h-50">  
+            <div class="align-center">
+                <h1 class="m-auto"><%= message %></h1>
+            </div>
+        </div>
+    <% } %>
+    <div class="modal fade" id="listModal" tabindex="-1" role="dialog" aria-labelledby="listModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="listModalTitle">Add List</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/newList" method="post">
+                        <div class="col-lg-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="List Name" name="newList"></input>
+                                <label for="floatingInput">List Name</label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Add List</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<%- include('footer') -%>

@@ -1,0 +1,156 @@
+html {
+  background-color: #547580 !important;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  min-height: 100vh !important;
+  display: contents;
+}
+h1 {
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+h5{
+  color: #fff;
+}
+#listModalTitle{
+  color: black;
+}
+
+.container-fluid{
+  height: 94% !important;
+}
+
+.box {
+  max-width: 400px;
+  margin: 50px auto;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+.listLink{
+  text-decoration: none;
+}
+
+#heading {
+  background-color: #805333;
+  text-align: center;
+}
+
+.item {
+  display: inline-flex;
+  min-height: 70px;
+  align-items: center;
+  border-bottom: 1px solid #F1F1F1;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+input:checked+p {
+  text-decoration: line-through;
+  text-decoration-color: #805333;
+}
+
+input[type="checkbox"] {
+  margin: 20px;
+}
+
+p {
+  margin: 0!important;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 200;
+  color: #00204a;
+}
+
+form.item{
+  text-align: center;
+}
+
+button.add-chores {
+  min-height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: #805333;
+  color: #fff;
+  font-size: 30px;
+  padding-bottom: 6px;
+  border-width: 0;
+}
+
+hr {
+  border-top: 8px solid white !important;
+  border-radius: 5px;
+}
+.listHr{
+  width: 90%;
+  margin: 1rem 0 0 1.2rem;
+  border-top: 2px solid black !important;
+}
+
+.add-list-button {
+  text-align: right;
+}
+.add-list {
+  min-height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: #cbb292;
+  color: #fff;
+  font-size: 30px;
+  padding-bottom: 6px;
+  border-width: 0;
+}
+
+input[name="addChore"] {
+  background-color: white;
+  text-align: center;
+  height: 60px;
+  top: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 200;
+  width: 313px;
+}
+input[name="addChore"]:focus {
+  outline: none;
+  box-shadow: inset 0 -3px 0 0 #cbb292;
+}
+
+input[name="newList"] {
+  background-color: white;
+  text-align: center;
+  height: 60px;
+  top: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 200;
+  border: 1px grey solid;
+  
+}
+
+input[name="newList"]:focus {
+  /* outline: none; */
+  border-bottom: 0;
+  box-shadow: inset 0 -3px 0 0 #cbb292;
+}
+
+::placeholder {
+  color: grey;
+  opacity: 1;
+}
+
+footer {
+  bottom: 0;
+  color: white;
+  text-align: center;
+}
