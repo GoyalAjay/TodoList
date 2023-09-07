@@ -1,7 +1,6 @@
 //jshint esversion:6
 import express from "express";
 import bodyParser from "body-parser";
-import { getDate, getDay } from "./date.js";
 import mongoose from "mongoose";
 import _ from "lodash";
 
