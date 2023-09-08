@@ -11,7 +11,9 @@
                     </div>
                 </form>
             <% }) %>
-            <hr class="listHr">
+            <% if (chores.length > 0) { %>
+                <hr class="listHr">
+            <% } %>
             <form class="item" action="/list/<%= listTitle %>/addChores" method="post">
                 <input class="mt-1" type="text" name="addChore" placeholder="New Chore" autocomplete="off"></input>
                 <button class="add-chores" type="submit" name="list" value="<%= listTitle %>">+</button>
