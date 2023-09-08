@@ -69,12 +69,19 @@ app.post("/deleteList", async (req, res) => {
 });
 
 app.post("/newList", async (req, res) => {
-    const newListName = req.body.newList;
-    const list = new List({
-        name: newListName,
+    const listName = _.capitalize(req.body.newList);
+    const foundList = await List.findOne({
+        name: listName,
     });
-    await list.save();
-    res.redirect(`/list/${newListName}`);
+    if (foundList) {
+        res.redirect(`/list/${listName}`);
+    } else {
+        const list = new List({
+            name: listName,
+        });
+        await list.save();
+        res.redirect(`/list/${listName}`);
+    }
 });
 
 app.get("/list/:customListName", async (req, res) => {
